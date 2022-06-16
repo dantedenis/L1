@@ -15,6 +15,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	// решение аналогичное предыдущей задачи, лишь разница в том, что завершение по таймеру и 1 горутина
 	ctx, closer := context.WithTimeout(context.Background(), timeLife*time.Second)
 	defer closer()
 	chanMain := make(chan interface{})

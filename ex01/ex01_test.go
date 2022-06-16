@@ -11,6 +11,8 @@ func TestHuman_String(t *testing.T) {
 		t.Error("String method is invalid")
 	}
 	a := Action{Human: *h, Skill: "programmer"}
+	b := Action1{Human: h, Skill: "programmer"}
 	fmt.Println("1.", a.String())
 	fmt.Println("2.", a)
+	fmt.Println("3.", b)
 }

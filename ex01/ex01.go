@@ -17,8 +17,14 @@ func NewHuman(firstName, lastName string, age int) *Human {
 	return &Human{firstName: firstName, lastName: lastName, age: age}
 }
 
-// Action :Встраивание(композиция) структуры хуман в структуру акшион
+// Action : Встраивание(композиция) структуры хуман в структуру акшион
 type Action struct {
 	Human
+	Skill string
+}
+
+// Action1 : Встраивание указателя на структуру
+type Action1 struct {
+	*Human
 	Skill string
 }
