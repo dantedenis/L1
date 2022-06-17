@@ -40,6 +40,7 @@ func someFunc() {
 
 func someFuncNorm() {
 	v := createHugeString(1 << 10)
+	// явно клонируем/копируем срез строки
 	justString := strings.Clone(v[:100])
 	fmt.Printf("Start address: %p to next start str: %p\n", &v, &justString)
 }
