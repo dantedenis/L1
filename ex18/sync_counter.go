@@ -4,6 +4,7 @@ import (
 	"sync"
 )
 
+// помимо самого счетчика втраиваем в структуру группы горутин и мьютексы
 type SyncCounter struct {
 	sync.WaitGroup
 	sync.RWMutex
@@ -14,6 +15,7 @@ func NewSyncCounter() *SyncCounter {
 	return &SyncCounter{count:0}
 }
 
+// конкурентная инкрементация за счет мьюта записи данных в структуру
 func (s *SyncCounter) Inc() {
 	s.Lock()
 	defer s.Unlock()
