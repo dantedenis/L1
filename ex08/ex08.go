@@ -13,7 +13,7 @@ func main() {
 
 		_, err := fmt.Scan(&target)
 		if err != nil {
-			// чисто проверка на  конца файла/ввода (End of file)
+			// чисто проверка на конец файла/ввода (End of file)
 			if err != io.EOF {
 				log.Fatal(err)
 			} else {
@@ -23,7 +23,6 @@ func main() {
 		}
 		SetBit(&number, target)
 		PrintBytes(number)
-		fmt.Println(number)
 	}
 
 }
@@ -41,11 +40,11 @@ func PrintBytes(n int64) {
 	var i int8
 	for i = 0; i < 64; i++ {
 		// сдвиг вправо и побитовое И с текущим числом, для отображения состояния бита:  0010 0000 >> 1 = 0001 0000
-		if (n >> 1) & 1) != 0 {
+		if (n>>i)&1 != 0 {
 			fmt.Printf("1")
 		} else {
 			fmt.Printf("0")
 		}
 	}
-	fmt.Println()
+	fmt.Println("\t", n)
 }

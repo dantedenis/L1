@@ -23,7 +23,7 @@ func ChanStop() {
 	quit := make(chan bool)
 	go func() {
 		fmt.Println("Start goroutine")
-		//инструкции перед завершением грутины
+		//инструкции перед завершением горутины
 		defer func() {
 			close(quit)
 			fmt.Println("Stop goroutine")
@@ -46,7 +46,7 @@ func ChanStop() {
 func SignalStop() {
 	fmt.Println("\tSignal Stop:")
 	sigChan := make(chan os.Signal, 1)
-	// сам метод и горутина работаю, пока не будет принят сигнял прерывания
+	// сам метод и горутина работаю, пока не будет принят сигнал прерывания
 	signal.Notify(sigChan, syscall.SIGINT)
 	go func() {
 		for {
@@ -104,7 +104,7 @@ func TimeoutStop2() {
 			case <-time.After(2 * time.Second):
 				fmt.Println("Stop goroutine")
 			default:
-				fmt.Println("Working...")	
+				fmt.Println("Working...")
 			}
 			time.Sleep(500 * time.Millisecond)
 		}
@@ -120,10 +120,10 @@ func ContextStop() {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 	go func() {
-		defer func(){ 
+		defer func() {
 			wg.Done()
 			fmt.Println("Stop goroutine")
-		}
+		}()
 		for {
 			select {
 			// Таймаут от контекста, завершение горутины
