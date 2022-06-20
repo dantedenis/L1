@@ -40,8 +40,12 @@ func someFunc() {
 
 func someFuncNorm() {
 	v := createHugeString(1 << 10)
-	// явно клонируем/копируем срез строки
-	justString := strings.Clone(v[:100])
+	/*
+	явно клонируем/копируем срез строки
+	[:100] - побайтовый срез, а строка состоит из рун
+	нужно преобразовывать
+	*/
+	justString := strings.Clone(string([]rune(v)[:100]))
 	fmt.Printf("Start address: %p to next start str: %p\n", &v, &justString)
 }
 
