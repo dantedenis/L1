@@ -4,10 +4,12 @@ import (
 	"math/big"
 )
 
+// BigInt структура для 2х битИнтов, которые внутри основаны на байтовом массиве
 type BigInt struct {
 	a, b *big.Int
 }
 
+// NewBigInt Конструктор от 2х инт64
 func NewBigInt(a, b int64) *BigInt {
 	return &BigInt{
 		a: big.NewInt(a),
@@ -15,17 +17,17 @@ func NewBigInt(a, b int64) *BigInt {
 	}
 }
 
-//Sum (a+b) return new Int
+// Add Sum (a+b) return new Int
 func (b *BigInt) Add() *big.Int {
 	return new(big.Int).Add(b.a, b.b)
 }
 
-//Differ (a-b) return new Int
+// Sub Differ (a-b) return new Int
 func (b *BigInt) Sub() *big.Int {
-	return new(big.Int).Add(b.a, b.b)
+	return new(big.Int).Sub(b.a, b.b)
 }
 
-//Product (a*b) return new Int
+// Mul Product (a*b) return new Int
 func (b *BigInt) Mul() *big.Int {
 	return new(big.Int).Mul(b.a, b.b)
 }
