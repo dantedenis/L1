@@ -100,12 +100,13 @@ m[2]=281`
 10. Что выведет данная программа и почему?
 
 
-`func update(p *int) {
+```golang
+func update(p *int) {
 b := 2
 p = &b
-}`
+}
 
-`func main() {
+func main() {
 var (
 a = 1
 p = &a
@@ -113,12 +114,13 @@ p = &a
 fmt.Println(*p)
 update(p)
 fmt.Println(*p)
-}`
+}
+```
 
 11. Что выведет данная программа и почему?
 
-
-`func main() {
+```golang
+func main() {
 wg := sync.WaitGroup{}
 for i := 0; i < 5; i++ {
 wg.Add(1)
@@ -129,11 +131,12 @@ wg.Done()
 }
 wg.Wait()
 fmt.Println("exit")
-}`
+}
+```
 
 12. Что выведет данная программа и почему?
 
-`
+```golang
 func main() {
 n := 0
 if true {
@@ -141,13 +144,14 @@ n := 1
 n++
 }
 fmt.Println(n)
-}`
+}
+```
 
 
 13. Что выведет данная программа и почему?
 
-
-`func someAction(v []int8, b int8) {
+```golang
+func someAction(v []int8, b int8) {
 v[0] = 100
 v = append(v, b)
 }`
@@ -156,20 +160,22 @@ v = append(v, b)
 var a = []int8{1, 2, 3, 4, 5}
 someAction(a, 6)
 fmt.Println(a)
-}`
+}
+```
 
 
 14. Что выведет данная программа и почему?
 
+```golang
+func main() {
+slice := []string{"a", "a"}
 
-`func main() {
-slice := []string{"a", "a"}`
-
-`func(slice []string) {
+func(slice []string) {
 slice = append(slice, "a")
 slice[0] = "b"
 slice[1] = "b"
 fmt.Print(slice)
 }(slice)
 fmt.Print(slice)
-}`
+}
+```
