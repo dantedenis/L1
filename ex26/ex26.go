@@ -8,7 +8,7 @@ import (
 func uniqueSymbol(str string) bool {
 	temp := []rune(strings.ToLower(str))
 	mmap := make(map[rune]bool)
-	
+
 	// мапим каждый символ, пока он не встретится в очередной раз
 	for _, k := range temp {
 		if _, ok := mmap[k]; ok {
@@ -23,7 +23,10 @@ func uniqueSymbol(str string) bool {
 func main() {
 	var str string
 	fmt.Println("Enter any strings")
-	fmt.Scan(&str)
-	
+	_, err := fmt.Scan(&str)
+	if err != nil {
+		return
+	}
+
 	fmt.Println(uniqueSymbol(str))
 }
